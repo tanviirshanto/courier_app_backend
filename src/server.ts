@@ -1,6 +1,7 @@
 import express, { Application } from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db";
+import authRoutes from "./routes/auth";
 
 dotenv.config();
 const app: Application = express();
@@ -8,10 +9,7 @@ const app: Application = express();
 // Middleware
 app.use(express.json());
 
-// Routes (example only)
-app.get("/", (req, res) => {
-  res.send("Courier API running with TypeScript + Mongoose...");
-});
+app.use("/api/auth", authRoutes);
 
 // Connect DB
 connectDB();
