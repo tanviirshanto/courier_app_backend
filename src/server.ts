@@ -2,7 +2,7 @@ import express, { Application } from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db";
 import authRoutes from "./routes/auth";
-
+import orderRoutes from "./routes/order";
 dotenv.config();
 const app: Application = express();
 
@@ -10,7 +10,7 @@ const app: Application = express();
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
-
+app.use("/api/orders", orderRoutes);
 // Connect DB
 connectDB();
 
